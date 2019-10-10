@@ -1,24 +1,50 @@
 <!DOCTYPE html>
-<html lang="pt-br ">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Faça Parte!</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <h1>Lista de Emails</h1>
-  <h3>Junte-se a
-    <strong><%=count%></strong>
-    pessoas e faça parte deste movimento
-  </h3>
+  <main class="container">
+    <h1>Lista de Emails</h1>
+    <h3>Junte-se a
+      <strong><%=count%></strong>
+      pessoas e faça parte deste movimento
+    </h3>
 
-  <form method="POST" action="/register">
-    <input type="text" name="email" placeholder="Coloque Seu Email">
-    <button type="submit">Faça Já!</button>
-  </form>
+    <form method="POST" action="/register">
+      <div>
+        <label>Nome:</label>
+        <input type="text" name="name" placeholder="Coloque Seu Nome">
+      </div>
+      <div>
+        <label>Email:</label>
+        <input type="text" name="email" placeholder="Coloque Seu Email">
+      </div>
+      <div>
+        <label>Rua:</label>
+        <input type="text" name="street" placeholder="Nome da Rua">
+      </div>
+      <div>
+        <label>Cidade:</label>
+        <input type="text" name="city" placeholder="Nome da Cidade">
+      </div>
+      <div>
+        <label>País:</label>
+        <input type="text" name="country" placeholder="Nome da País">
+      </div>
+      <div>
+        <label>Filiação</label>
+        <input type="date" name="date" placeholder="Filiação">
+      </div>
+      <button type="submit">Faça Já!</button>
+    </form>
+  </main>
 </body>
 
 </html>

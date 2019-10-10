@@ -16,11 +16,11 @@ const connection = mysql.createConnection({
 
 server.set('view engine', 'ejs');
 server.use(bodyParser.urlencoded({ extended: true }));
+server.use(express.static(`${__dirname}/views`));
 
 server.get('/', (req, res) => {
   connection.query('SELECT COUNT(*) AS count FROM users', (err, data) => {
     if (err) throw err;
-    // res.send(`Junte se à ${data[0].count} pessoas e receba nossa MafiMail`);
     res.render('index', {
       count: data[0].count,
     });
@@ -30,8 +30,13 @@ server.get('/', (req, res) => {
 server.post('/register', (req, res) => {
   const person = {
     email: req.body.email,
+    name: req.body.name,
+    street: req.body.street,
+    city: req.body.city,
+    country: req.body.country,
+    member_since: req.body.date,
   };
-  connection.query('INSERT INTO users SET ?', person, (err, data) => {
+  connection.query('INSERT INTO users SET ?', person, (err) => {
     if (err) throw err;
     res.redirect('/');
   });
